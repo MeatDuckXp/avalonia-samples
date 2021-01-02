@@ -1,0 +1,32 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:ComplexLayout.ViewModels;assembly=ComplexLayout"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="ComplexLayout.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="ComplexLayout">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext> 
+  <DockPanel>
+    <TextBlock DockPanel.Dock="Top"
+       Background="LightYellow">Main Header text.</TextBlock> 
+  
+    <TextBlock DockPanel.Dock="Bottom"
+            Background="LightYellow">Main Footer text.</TextBlock>
+    
+    <TextBlock DockPanel.Dock="Left"
+            Background="Lavender">Main Navigation.</TextBlock>
+    
+    <DockPanel Background="Bisque">
+      <StackPanel DockPanel.Dock="Top">
+        <Button HorizontalAlignment="Left" Height="30" Width="100" Margin="10,10,10,10">Hit me once</Button>
+        <Button HorizontalAlignment="Left" Height="30" Width="100" Margin="10,10,10,10">Hit me twice</Button>
+      </StackPanel>
+      <TextBlock Background="LightGreen">Content footer text.</TextBlock>
+    </DockPanel>
+  </DockPanel>
+</Window>
