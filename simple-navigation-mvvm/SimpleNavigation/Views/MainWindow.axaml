@@ -1,0 +1,34 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:SimpleNavigation.ViewModels;assembly=SimpleNavigation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:localViews="clr-namespace:SimpleNavigation.Views"
+        xmlns:localViewModel="clr-namespace:SimpleNavigation.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="SimpleNavigation.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Simple Navigation ">
+
+  <Window.DataTemplates>
+    <DataTemplate DataType="{x:Type localViewModel:EmployeeViewModel}">
+      <localViews:EmployeeView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type localViewModel:DepartmentViewModel}">
+      <localViews:DepartmentView/>
+    </DataTemplate>
+  </Window.DataTemplates>
+
+  <Design.DataContext>
+    <vm:MainWindowViewModel/>
+  </Design.DataContext>
+
+  <DockPanel LastChildFill="True">
+    <StackPanel x:Name="navigation" DockPanel.Dock="Left" Spacing="5">
+      <Button Content="Employee" Command="{Binding EmpCommand}"></Button>
+      <Button Content="Department" Command="{Binding DeptCommand}"></Button>
+    </StackPanel>
+    <ContentControl x:Name="Pages" DockPanel.Dock="Right" Content="{Binding SelectedViewModel}"/>
+  </DockPanel>
+
+</Window>
